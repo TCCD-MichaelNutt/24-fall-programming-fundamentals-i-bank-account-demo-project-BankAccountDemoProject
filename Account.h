@@ -3,6 +3,11 @@
 using namespace std;
 
 class Account
+{#pragma once
+#include <string>
+using namespace std;
+
+class Account
 {
 public:
     Account(string name, string pin, float startingBalance)
@@ -24,4 +29,4 @@ private:
     string m_pin{ "1234" };
     float m_accountBalance{ 0.0f };
     void updateBalance(float amount);
-};
+}
