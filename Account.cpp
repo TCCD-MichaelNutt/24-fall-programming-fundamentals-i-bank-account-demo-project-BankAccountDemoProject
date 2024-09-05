@@ -3,6 +3,8 @@
 #include "account.h"
 using namespace std;
 
+#define nothing
+
 void Account::deposit(string pin, float amount)
 {
     int result{ 0 };
@@ -54,7 +56,7 @@ void Account::withdraw(string pin, float amount)
         }
         case -1:
         {
-            cout << "Deposit failed ...\n";
+            cout << "Withdraw failed ...\n";
             break;
         }
         }
