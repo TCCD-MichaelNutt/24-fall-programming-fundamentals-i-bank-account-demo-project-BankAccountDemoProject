@@ -3,6 +3,8 @@
 #include "account.h"
 using namespace std;
 
+#define nothing
+
 void Account::deposit(string pin, float amount)
 {
     int result{ 0 };
@@ -20,6 +22,7 @@ void Account::deposit(string pin, float amount)
         case 0:
         {
             cout << "Deposit Successful\n";
+            m_depositHistory.push_back(amount);
             break;
         }
         case -1:
@@ -48,12 +51,12 @@ void Account::withdraw(string pin, float amount)
         {
         case 0:
         {
-            cout << "Deposit Successful\n";
+            cout << "Withdraw Successful\n";
             break;
         }
         case -1:
         {
-            cout << "Deposit failed ...\n";
+            cout << "Withdraw failed ...\n";
             break;
         }
         }
@@ -78,4 +81,16 @@ float Account::checkBalance(string pin)
     if (pin == m_pin)
         return m_accountBalance;
     return -1.0f;
+}
+
+void Account::printDepositHistory()
+{
+    int numDeposits = m_depositHistory.size();
+
+    for (int i{ 0 }; i < numDeposits; i++)
+    {
+        cout << m_depositHistory[i] << "\n";
+    }
+
+    return;
 }
